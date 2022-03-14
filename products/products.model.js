@@ -1,4 +1,4 @@
-export const products = [
+const products = [
   {
     id: 'redshoe',
     description: 'Red Shoe',
@@ -10,3 +10,11 @@ export const products = [
     price: 500.39
   }
 ]
+
+function getAllProducts() {
+  return products;
+}
+
+export default productsModel = {
+  getAllProducts
+}

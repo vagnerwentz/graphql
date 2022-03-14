@@ -1,4 +1,4 @@
-export const orders = [
+const orders = [
   {
     date: '2005-05-05',
     subtotal: 542.61,
@@ -14,3 +14,11 @@ export const orders = [
     ]
   }
 ]
+
+function getAllOrders() {
+  return orders;
+}
+
+export default ordersModel = {
+  getAllOrders
+}
