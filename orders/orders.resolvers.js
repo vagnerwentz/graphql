@@ -1,7 +1,7 @@
 
-import ordersModel from './orders.model';
+const ordersModel =  require('./orders.model');
 
-export const ordersResolvers = {
+module.exports = {
   Query: {
     orders: () => {
       return ordersModel.getAllOrders()

@@ -1,15 +1,14 @@
-import path from 'path'
-import express from 'express'
-import { fileURLToPath } from 'url';
-import { graphqlHTTP } from 'express-graphql'
-import { loadFilesSync, loadFiles } from '@graphql-tools/load-files'
-import { makeExecutableSchema } from '@graphql-tools/schema'
+const path = require('path')
+const express = require('express')
+const { graphqlHTTP } = require('express-graphql')
+const { loadFilesSync } = require('@graphql-tools/load-files')
+const { makeExecutableSchema } = require('@graphql-tools/schema')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const typesArray = loadFilesSync(path.join(__dirname, '**/*.graphql'))
 
-const typesArray = loadFiles(path.join(__dirname, '**/*.graphql'))
-const resolversArray = loadFiles(path.join(__dirname), '**/*.resolvers.js')
+const productsResolvers = require('./products/products.resolvers')
+const ordersResolvers = require('./orders/orders.resolvers')
+const resolversArray = [productsResolvers, ordersResolvers]
 
 const schema = makeExecutableSchema({
   typeDefs: typesArray,

@@ -19,6 +19,6 @@ function getAllOrders() {
   return orders;
 }
 
-export default ordersModel = {
+module.exports = {
   getAllOrders
 }
